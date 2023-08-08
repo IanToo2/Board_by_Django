@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-zk-@d1)fn8v-d8(tx9_8vo0g7rk(now&7=o9c99plv9$n7^xye
 DEBUG = True
 
 # AWS IP 추가
-ALLOWED_HOSTS = ['43.202.54.254']
+ALLOWED_HOSTS = ['43.202.54.254','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'common.apps.CommonConfig',
     'pybo.apps.PyboConfig',
     'django.contrib.admin',
@@ -133,3 +134,9 @@ LOGIN_REDIRECT_URL = '/'
 
 # Logout url
 LOGOUT_REDIRECT_URL = '/'
+
+# REST_FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

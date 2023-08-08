@@ -17,11 +17,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from pybo import views
+from pybo import views as pybo_views
+
+from rest_framework import routers
+from . import views
+
+router = routers.DefaultRouter()
+router.register(r'Questions', views.QuestionViewSet)
+router.register(r'Answers', views.AnswerViewSet)
+
 
 urlpatterns = [
+    # 시작 화면
+    path('',pybo_views.index, name='index'),
+    # 관리자 
     path('admin/', admin.site.urls),
+    # 게시글 관리
     path('pybo/', include('pybo.urls')),
+    # 사용자 관리
     path('common',include('common.urls')),
-    path('',views.index, name='index'),
+    # rest api
+    path('restapi/', include(router.urls)),
+    path('api-auth/',include('rest_framework.urls'))
 ]
