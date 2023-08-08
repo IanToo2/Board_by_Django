@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 
-# pybo/views
 from . import views
+
+# pybo/views
 from pybo import views as pybo_views
 
 from rest_framework import routers, permissions
@@ -39,8 +40,8 @@ schema_view = get_schema_view(
 
 
 router = routers.DefaultRouter()
-router.register(r'Questions', views.QuestionViewSet)
-router.register(r'Answers', views.AnswerViewSet)
+router.register(r'question', views.QuestionViewSet)
+router.register(r'answer', views.AnswerViewSet)
 
 
 urlpatterns = [
@@ -54,10 +55,11 @@ urlpatterns = [
     path('common',include('common.urls')),
     # rest api
     path('restapi/', include(router.urls)),
-    path('api-auth/',include('rest_framework.urls')),
+   
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
+    path('api-auth/',include('rest_framework.urls'))
 ]
