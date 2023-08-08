@@ -32,9 +32,13 @@ ALLOWED_HOSTS = ['43.202.54.254','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    # api관련
+    'drf_yasg',
     'rest_framework',
+    # 추가로 생성한 앱
     'common.apps.CommonConfig',
     'pybo.apps.PyboConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
