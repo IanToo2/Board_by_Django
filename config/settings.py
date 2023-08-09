@@ -38,14 +38,35 @@ INSTALLED_APPS = [
     # 추가로 생성한 앱
     'common.apps.CommonConfig',
     'pybo.apps.PyboConfig',
-    
+    # Allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # Allauth providers - google
+    'allauth.socialaccount.providers.google',
+    # django app
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+SITE_ID = 2
+SOCIALACCOUNT_LOGIN_ON_GET = True
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS':{
+            'access_type': 'online'
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,14 +154,22 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Login url
+# Login 
 LOGIN_REDIRECT_URL = '/'
 
-# Logout url
+# Logout 
 LOGOUT_REDIRECT_URL = '/'
+LOGOUT_ON_GET = True
 
 # REST_FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
+
+AUTHENTICATION_BACKENDS = (
+    # Django 기본 회원정보 모델
+    'django.contrib.auth.backends.ModelBackend',
+    # 소셜 로그인 회원정보 모델
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
