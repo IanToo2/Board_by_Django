@@ -20,7 +20,7 @@ from django.urls import path, include, re_path
 from . import views
 
 # pybo/views
-from pybo import views as pybo_views
+from pybo.views import base_views
 
 from rest_framework import routers, permissions
 
@@ -46,7 +46,7 @@ router.register(r'answer', views.AnswerViewSet)
 
 urlpatterns = [
     # 시작 화면
-    path('',pybo_views.index, name='index'),
+    path('',base_views.index, name='index'),
     # 관리자 
     path('admin/', admin.site.urls),
     # 게시글 관리
@@ -55,11 +55,10 @@ urlpatterns = [
     path('common',include('common.urls')),
     # rest api
     path('restapi/', include(router.urls)),
-   
-
+    path('restapi/api-auth/',include('rest_framework.urls')),   
+    # swagger, redoc
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
-    path('restapi/api-auth/',include('rest_framework.urls')),
 ]
