@@ -16,11 +16,12 @@
             <input type="password" class="form-control" name="password" id="password"
                 value="{{ form.password.value|default_if_none:'' }}">
         </div>
+        <!-- 로그인 버튼 -->
         <button type="submit" class="btn btn-primary">로그인</button>
-        <a href="{% provider_login_url 'google' %}">Google</a>
-        <a href="{% provider_login_url 'kakao' %}">Kakao</a>
-        <a href="{% provider_login_url 'naver' %}">Naver</a>
-        <a href="{% provider_login_url 'github' %}">Github</a>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-primary">Google</a>
+        <a href="{% provider_login_url 'kakao' %}" class="btn btn-primary">Kakao</a>
+        <a href="{% provider_login_url 'naver' %}" class="btn btn-primary">Naver</a>
+        <a href="{% provider_login_url 'github' %}" class="btn btn-primary">Github</a>
 
     </form>
 </div>
