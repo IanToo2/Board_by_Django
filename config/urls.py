@@ -21,6 +21,8 @@ from . import views
 
 # pybo/views
 from pybo.views import base_views
+# home/views
+from home.views import home_views
 
 from rest_framework import routers, permissions
 
@@ -46,7 +48,8 @@ router.register(r'answer', views.AnswerViewSet)
 
 urlpatterns = [
     # 시작 화면
-    path('',views.main, name='main'),
+    path('',home_views.main, name='main'),
+    path('home/',include('home.urls')),
     # 게시글 화면
     path('index/',base_views.index, name='index'),
     # 관리자 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 from pybo.models import Question, Answer
 from rest_framework import viewsets
 from django.contrib.auth.models import User
@@ -17,6 +17,3 @@ class AnswerViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = serializers.AnswerSerializer
-
-def main(request):
-    return render(request, 'main.html')

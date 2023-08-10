@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # 추가로 생성한 앱
     'common.apps.CommonConfig',
     'pybo.apps.PyboConfig',
+    'home.apps.HomeConfig',
     # Allauth
     'allauth',
     'allauth.account',
