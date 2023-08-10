@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-zk-@d1)fn8v-d8(tx9_8vo0g7rk(now&7=o9c99plv9$n7^xye
 DEBUG = True
 
 # AWS IP 추가
-ALLOWED_HOSTS = ['43.202.54.254','127.0.0.1']
+ALLOWED_HOSTS = ['43.202.54.254','127.0.0.1','xn--4k0b719bpna.com','김정인.shop']
 
 
 # Application definition
@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # Allauth providers - google
+    # Allauth providers - google, kakao
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.kakao',
     # django app
     'django.contrib.admin',
     'django.contrib.auth',

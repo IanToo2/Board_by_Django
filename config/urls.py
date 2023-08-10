@@ -46,7 +46,9 @@ router.register(r'answer', views.AnswerViewSet)
 
 urlpatterns = [
     # 시작 화면
-    path('',base_views.index, name='index'),
+    path('',views.main, name='main'),
+    # 게시글 화면
+    path('index/',base_views.index, name='index'),
     # 관리자 
     path('admin/', admin.site.urls),
     # 게시글 관리
