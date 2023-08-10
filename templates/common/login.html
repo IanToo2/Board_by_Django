@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load socialaccount %}
 {% block content %}
 <div class="container my-3">
     <form method="post" action="{% url 'common:login' %}">
@@ -16,6 +17,10 @@
                 value="{{ form.password.value|default_if_none:'' }}">
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
+        <a href="{% provider_login_url 'google' %}">Google</a>
+        <a href="{% provider_login_url 'kakao' %}">Kakao</a>
+        <a href="{% provider_login_url 'naver' %}">Naver</a>
+
     </form>
 </div>
 {% endblock %}
