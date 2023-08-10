@@ -58,7 +58,7 @@ urlpatterns = [
     path('pybo/', include('pybo.urls')),
     # 사용자 관리
     path('common',include('common.urls')),
-    # allauth login
+    # allauth login 네네
     path('accounts/', include('allauth.urls')),
     # rest api
     path('restapi/', include(router.urls)),
