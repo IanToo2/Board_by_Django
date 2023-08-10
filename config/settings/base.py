@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-zk-@d1)fn8v-d8(tx9_8vo0g7rk(now&7=o9c99plv9$n7^xye
 DEBUG = True
 
 # AWS IP 추가
-ALLOWED_HOSTS = ['43.202.54.254','127.0.0.1','xn--4k0b719bpna.com','김정인.shop']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -43,10 +43,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    # Allauth providers - google, kakao, naver
+    # Allauth providers - google, kakao, naver, github
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.github',
     # django app
     'django.contrib.admin',
     'django.contrib.auth',
