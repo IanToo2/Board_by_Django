@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from .views import base_views, answer_views, question_views
+from .views import base_views, answer_views, question_views, checking_views
 
 app_name = 'pybo'
 
@@ -30,4 +30,6 @@ urlpatterns = [
          answer_views.answer_delete, name='answer_delete'),
     path('answer/vote/<int:answer_id>/',
          answer_views.answer_vote, name='answer_vote'),
+    path('answer/filter/<int:answer_id>/',
+         checking_views.process_api_request, name='answer_filter'),
 ]

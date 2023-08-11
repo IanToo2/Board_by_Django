@@ -13,4 +13,25 @@
         <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var apiButton = document.getElementById("apiButton");
+        apiButton.addEventListener("click", function () {
+            fetch("{% url 'process_api_request' %}", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        });
+    });
+</script>
 {% endblock %}

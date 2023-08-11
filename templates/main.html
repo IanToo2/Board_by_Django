@@ -9,18 +9,54 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
     <title>Web Ai 5기</title>
-    <!-- 네비게이션바 -->
-    {% include "navbar.html" %}
+
+
+    <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            margin: 0;
+        }
+
+        .content-text {
+            margin: 50px;
+            text-align: center;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 스타일을 추가하지 않음 */
+    </style>
 </head>
 
 <body>
-    <h1>프로젝트를 해보자...</h1>
-    <ul>
-        <li>1. 술집 api를 어디서 가져오지?</li>
-        <li>2. 어떤 디자인으로 화면을 보여줄까?</li>
-        <li>3. 어떤 model을 이용할까?</li>
-        <li>4. 구매한 도메인 연결 왜 안될까?....</li>
-    </ul>
+    <div style="height: 15%;">
+        <!-- 네비게이션바 -->
+        {% include "navbar.html" %}
+    </div>
+    <div style="height: 70%;">
+        <div class="content-text">
+            <h1>목표 : 비속어 필터링</h1>
+        </div>
+        <div class="content">
+            <ul>
+                <li>1. 필터링 Api 찾기</li>
+                <li>2. 내용 필터링 하기</li>
+                <li>3. 결과값으로 수정하기</li>
+            </ul>
+        </div>
+    </div>
+    <div style="height: 15%;">
+        {% include 'footer.html' %}
+    </div>
 </body>
 
 </html>

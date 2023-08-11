@@ -13,11 +13,14 @@
         {% endfor %}
     </div>
     {% endif %}
-    <!-- 질문 -->
+    <!-- 게시글 -->
     <h2 class="border-bottom py-2">{{ question.subject }}</h2>
     <div class="card my-3">
         <div class="card-body">
-            <div class="card-text">{{ question.content|mark }}</div>
+            <div class="card-text">{{ question.content|mark }}
+
+                <button id="AnswerFilter">필터링</button>
+            </div>
             <div class="d-flex justify-content-end">
                 {% if question.modify_date %}
                 <div class="badge bg-light text-dark p-2 text-start mx-3">
@@ -45,6 +48,7 @@
     </div>
     <!-- 답변 -->
     <h5 class="border-bottom my-3 py-2">{{question.answer_set.count}}개의 답변이 있습니다.</h5>
+    <!-- 댓글 필터링-->
     {% for answer in question.answer_set.all %}
     <div class="card my-3">
         <div class="card-body">
@@ -103,6 +107,7 @@
 {% endblock %}
 {% block script %}
 <script type='text/javascript'>
+
     const delete_elements = document.getElementsByClassName("delete");
     Array.from(delete_elements).forEach(function (element) {
         element.addEventListener('click', function () {
@@ -111,6 +116,7 @@
             };
         });
     });
+
     const recommend_elements = document.getElementsByClassName("recommend");
     Array.from(recommend_elements).forEach(function (element) {
         element.addEventListener('click', function () {

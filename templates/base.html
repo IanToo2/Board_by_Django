@@ -11,21 +11,38 @@
     <!-- pybo CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Hello, pybo!</title>
-    <!-- 네비게이션바 -->
-    {% include "navbar.html" %}
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-    {% block content %}
-    {% endblock %}
-    <!-- 기본 템플릿 안에 삽입될 내용 End -->
-    <!-- Bootstrap JS -->
-    <script src="{% static 'bootstrap.min.js' %}"></script>
-    <!-- 자바스크립트 Start -->
-    {% block script %}
-    {% endblock %}
-    <!-- 자바스크립트 End -->
+    <!-- 네비게이션바 -->
+    <div style="height: 15%;">
+        {% include "navbar.html" %}
+    </div>
+    <div style="height: 70%;">
+        <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+        {% block content %}
+        {% endblock %}
+        <!-- 기본 템플릿 안에 삽입될 내용 End -->
+        <!-- Bootstrap JS -->
+        <script src="{% static 'bootstrap.min.js' %}"></script>
+        <!-- 자바스크립트 Start -->
+        {% block script %}
+        {% endblock %}
+        <!-- 자바스크립트 End -->
+    </div>
+    <div style="height: 15%;">
+        {% include 'footer.html' %}
+    </div>
 </body>
 
 </html>
